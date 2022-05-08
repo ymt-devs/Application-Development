@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GroupCoursework.ViewModels.PurchaseHistoryViewModel>
+
+@{ ViewData["Title"] = "Customer Purchase History"; }
+
+<h1>Customer Purchase Report</h1>
+<div class="row">
+    <div class="col-6">
+        <form action="/Report/PurchaseHistoryReport" method="get">
+            <input class="form-control" type="text" name="name" value="" placeholder="Enter Customer ID" />
+            <button class="btn btn-primary my-3" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+</tr>}
+        </tbody>
+    </table>

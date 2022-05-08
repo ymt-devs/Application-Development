@@ -1,0 +1,37 @@
+﻿@model IEnumerable<GroupCoursework.ViewModels.OutofStockViewModel>
+
+@{ ViewData["Title"] = "Out of Stock Items"; }
+
+<h1>Out of Stock Items </h1>
+<div class="row">
+    <div class="col-6">
+        <h6>Order by:</h6>
+        <button class="btn btn-outline-primary my-2" href="/Report/OutOfStockItemsReport?sort=quantity">Stock Quantity</button>
+        <button class="btn btn-outline-primary my-2" href="/Report/OutOfStockItemsReport?sort=name">Product Name</button>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr >
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Quantity)
+    </td>
+</tr>}
+    </tbody>
+</table>

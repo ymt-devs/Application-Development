@@ -1,0 +1,23 @@
+﻿@model IEnumerable<GroupCoursework.ViewModels.OutofStockViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>to Ropey's DVD' </p>
+</div>
+<div class="alert alert-danger" role="alert">
+    <h5>Items Currently Out of Stock</h5>
+    <ul>
+        @foreach(var item in Model)
+        {
+            <li>
+                @Html.DisplayFor(modelitem=>item.ProductName)
+            </li>
+        }
+    </ul>
+    <hr/>
+    <a href ="Report/OutofStockItemsReport" class="alert-link">For more Details</a>
+</div>
